@@ -23,11 +23,11 @@ export const Readout = (props) => {
     contract,
   } = props
 
-  const diff = +actual - +base;
-  const hundredWeight = (weight) => +weight/100;
-  const adjustedPrice = +contract - (diff * +slide);
-  const withSlide = +adjustedPrice * hundredWeight(actual);
-  const originalPrice = +contract * hundredWeight(base);
+  const diff = actual - base;
+  const hundredWeight = (weight) => weight/100;
+  const adjustedPrice = contract - (diff * slide);
+  const withSlide = adjustedPrice * hundredWeight(actual);
+  const originalPrice = contract * hundredWeight(base);
   
   return(
     <InnerContent

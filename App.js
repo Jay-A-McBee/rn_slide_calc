@@ -24,6 +24,11 @@ export default class App extends Component {
   }
 
   render() {
+
+    const convertedProps = Object.keys(this.state).reduce( (acc,key) => {
+      acc[key] = +this.state[key];
+      return acc;
+    },{})
     
     return (
       <Container
@@ -34,7 +39,7 @@ export default class App extends Component {
           handleChange={this.handleChange}
         />
         <Readout 
-          {...this.state}
+          {...convertedProps}
         />
         
       </Container>

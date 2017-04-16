@@ -5,7 +5,6 @@ import { StyledTitle, FieldLabel, StyledText} from '../components/labels';
 import { StyledSlider } from '../components/slide';
 
 export const LeversAndGears = (props) => {
-  
   let {
     contract,
     base,
@@ -20,8 +19,6 @@ export const LeversAndGears = (props) => {
     textAlign:'center'
   }
   
-  [contract, base, actual, slide] = [+contract,(+base).toFixed(0),(+actual).toFixed(2),+slide];
-
   return(
     <InnerContent
       alignItems='center'
@@ -44,6 +41,7 @@ export const LeversAndGears = (props) => {
             <FieldLabel>Base Weight</FieldLabel>
             <StyledTextInput 
               defaultValue={base}
+              value={base}
               onChange={(e) => handleChange(e.nativeEvent.text, 'base')}
             />
           </BottomBorderView>
@@ -53,6 +51,7 @@ export const LeversAndGears = (props) => {
             <FieldLabel>Actual Weight</FieldLabel>
             <StyledTextInput 
               defaultValue={actual}
+              value={actual}
               onChange={(e) => handleChange(e.nativeEvent.text, 'actual')}
             />
           </BottomBorderView>
@@ -63,7 +62,7 @@ export const LeversAndGears = (props) => {
           <BottomBorderView>
             <FieldLabel>Slide Value per cwt.</FieldLabel>
             <StyledSlider
-              value={slide}
+              value={+slide}
               onValueChange={(val) => handleChange(val, 'slide') }
               minimumValue={0}
               maximumValue={1}
@@ -74,7 +73,7 @@ export const LeversAndGears = (props) => {
           </BottomBorderView>
         </FixedWidthContainer>
         <FixedWidthContainer percent={.2} justify='center'>
-          <StyledText {...textProps}>{`${slide.toFixed(2)}`}</StyledText> 
+          <StyledText {...textProps}>{`${(+slide).toFixed(2)}`}</StyledText> 
         </FixedWidthContainer>
       </Row>
     </InnerContent>
