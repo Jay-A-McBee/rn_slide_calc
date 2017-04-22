@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { Container } from './components/positioning/container';
+import { Container, BackgroundImage, InnerContent } from './components/positioning/container';
 import { LeversAndGears } from './containers/lever-container';
 import { Readout } from './containers/readout-container';
+import cow from './Assets/01cow-bg.gif';
 
 
 export default class App extends Component {
@@ -33,15 +34,21 @@ export default class App extends Component {
     return (
       <Container
         justify='space-around'
+        source={cow}
       >
-        <LeversAndGears 
-          {...this.state}
-          handleChange={this.handleChange}
-        />
-        <Readout 
-          {...convertedProps}
-        />
-        
+        <InnerContent
+          alignItems='center'
+          justify='center'
+          factor={.9}
+        >
+          <LeversAndGears 
+            {...this.state}
+            handleChange={this.handleChange}
+          />
+          <Readout 
+            {...convertedProps}
+          />
+        </InnerContent>
       </Container>
     )
   }
