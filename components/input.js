@@ -15,7 +15,8 @@ export const StyledTextInput = styled.TextInput`
 export const BottomBorderView = styled.View`
   align-self:stretch;
   border-bottom-color:${props => !!props.withBorder ? "black" : "black"};
-  border-bottom-width:${props => !!props.withBorder ? .25 : 0};
+  border-bottom-width:${props => !!props.withBorder ? .5 : 0};
   margin-bottom:10;
-  margin-top:${props => !!props.marginTop ? props.marginTop : 0}
+  margin-top:${props => !!props.marginTop ? props.marginTop : 0};
+  padding-bottom:0;
 `
